@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="robots" content="nofollow,noarchive,noindex">
@@ -529,9 +530,6 @@
         }
     </style>
     <style>
-        /**
-         * error page style ShevonKwan
-         */
         :root {
             --color-bg-primary: rgba(255, 255, 255, 0.6);
             --color-text-primary: #000;
@@ -622,7 +620,7 @@
                 transform: translateX(-80%) translateY(-20%);
             }
         }
-/* backgroup */
+
         .gradient-bg {
             width: 100vw;
             height: 100vh;
@@ -732,16 +730,12 @@
 
         .gradient-bg .interactive {
             position: absolute;
-            /* background: radial-gradient(circle at center,
-                    rgba(var(--color-interactive), 0.8) 0,
-                    rgba(var(--color-interactive), 0) 80%) no-repeat; */
             mix-blend-mode: var(--blending);
             width: 100%;
             height: 100%;
             top: -50%;
             left: -50%;
             opacity: 0.7;
-            /* animation: color-i 20s infinite linear; */
         }
 
         @keyframes color-i {
@@ -844,9 +838,6 @@
             }
         }
 
-
-
-        /** Idea author: https://github.com/186526/CloudflareCustomErrorPage */
         html,
         body {
             margin: 0;
@@ -861,8 +852,6 @@
             align-items: center;
 
         }
-
-
 
         body {
             margin: 2em 2em;
@@ -879,7 +868,7 @@
             padding: 2em;
             background-color: var(--color-bg-primary);
             transition: opacity 0.5s;
-            
+
         }
 
         .atropos-inner {
@@ -887,9 +876,6 @@
 
             overflow: hidden;
         }
-
-
-
 
         @supports ((-webkit-backdrop-filter: saturate() blur()) or (backdrop-filter: saturate() blur())) {
             .container {
@@ -903,7 +889,6 @@
                 backdrop-filter: saturate(150%) blur(10px) opacity(10%);
             }
         }
-
 
         header {
             margin-left: 1em;
@@ -946,9 +931,7 @@
             border-radius: 20px;
             flex-grow: 1;
             position: relative;
-            /* 确保伪元素相对定位 */
             overflow: hidden;
-            /* 隐藏溢出的内容 */
         }
 
         .card::before {
@@ -976,7 +959,6 @@
         .card.active::after {
             opacity: 1;
         }
-
 
         .card::after {
             z-index: -1;
@@ -1088,7 +1070,6 @@
             align-content: flex-end;
         }
 
-
         footer .details {
             margin-top: 20px;
         }
@@ -1103,7 +1084,6 @@
             padding-left: 0.3em;
             opacity: 0.7;
         }
-
 
         @media screen and (max-width: 820px) {
             .arrows {
@@ -1134,6 +1114,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="atropos">
         <div class="atropos-scale">
@@ -1223,21 +1204,22 @@
                             <footer>
                                 <div class="details" data-atropos-offset="3">
                                     <ul>
-                                        <li><span>Request ID</span>: <code>%request_id%</code></li>
-                                        <li><span>Request Time</span>: <code>%time_local%</code></li>
-                                        <li><span>Request</span>: <code>%request%</code></li>
-                                        <li><span>Request Host</span>: <code>%host%</code></li>
-                                        <li><span>Remote Address</span>: <code>%remote_addr%</code></li>
-                                        <li><span>Referer</span>: <code>%http_referer%</code></li>
-                                        <li><span>Request Time (s)</span>: <code>%request_time%</code></li>
-                                        <li><span>Upstream Response Time (s)</span>:
+                                        <li><span>请求</span>: <code>%request%</code></li>
+                                        <li><span>请求ID</span>: <code>%request_id%</code></li>
+                                        <li><span>IP</span>: <code>%remote_addr%</code></li>
+                                        <li><span>请求时间</span>: <code>%time_local%</code></li>
+                                        <li><span>主机</span>: <code>%host%</code></li>
+                                        <li><span>来源</span>: <code>%http_referer%</code></li>
+                                        <li><span>请求时间 (s)</span>: <code>%request_time%</code></li>
+                                        <li><span>服务器响应时间 (s)</span>:
                                             <code>%upstream_response_time%</code>
                                         </li>
-                                        <li><span>User Agent</span>: <code>%http_user_agent%</code></li>
-                                        <li><span>Server</span>: <code>%server%</code></li>
+                                        <li><span>客户端</span>: <code>%http_user_agent%</code></li>
+                                        <li><span>服务器</span>: <code>%server%</code></li>
                                     </ul>
                                 </div>
-                                <div class="details" style="text-align: center;" data-atropos-offset="6">PeiFeng.Li © 2024</div>
+                                <div class="details" style="text-align: center;" data-atropos-offset="6">PeiFeng.Li ©
+                                    2024</div>
                             </footer>
                         </div>
                     </div>
@@ -1400,4 +1382,5 @@
     <!-- {{- end -}} -->
 
 </body>
+
 </html>
