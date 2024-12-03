@@ -54,5 +54,5 @@ jobs:
                   cp ./error-pages/index.html ./gh-pages/index.html
             - uses: peaceiris/actions-gh-pages@v4
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  github_token: ${{ secrets.TOKEN }}
                   publish_dir: ./gh-pages
