@@ -12,6 +12,8 @@
     <meta property="og:description" content="{{ description | escape }}">
     <meta property="twitter:title" content="{{ code }}: {{ message | escape }}">
     <meta property="twitter:description" content="{{ description | escape }}">
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const interBubble = document.querySelector('.interactive');
@@ -466,34 +468,6 @@
             display: block
         }
 
-        .atropos-highlight,
-        .atropos-shadow {
-            position: absolute;
-            pointer-events: none;
-            transition-property: transform, opacity;
-            display: block;
-            opacity: 0
-        }
-
-        .atropos-shadow {
-            z-index: -1;
-            background: #000000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            filter: blur(30px)
-        }
-
-        .atropos-highlight {
-            left: -50%;
-            top: -50%;
-            width: 200%;
-            height: 200%;
-            background-image: radial-gradient(circle at 50%, rgba(255, 255, 255, .25), transparent 50%);
-            z-index: 0
-        }
-
         .atropos-rotate {
             position: relative
         }
@@ -531,93 +505,95 @@
     </style>
     <style>
         :root {
-            --color-bg-primary: rgba(255, 255, 255, 0.6);
+            background: linear-gradient(to bottom, #ffffff, #ff007377, #ffffff);
+            --color-bg-primary: #ffffffcc;
             --color-text-primary: #000;
-            --color-text-secondary: #575958;
-            --ui-card-color-bg: rgba(242, 242, 242, 0.6);
-            --color-text-ok: #137333;
-            --color-bg-ok: rgba(190, 255, 208, 0.6);
-            --color-text-error: #c5221f;
-            --color-bg-error: rgba(255, 200, 195, 0.6);
-            --color-text-warning: #b05a00;
-            --color-bg-warning: rgba(255, 239, 185, 0.6);
-            --icon-size: 48px;
+            --color-text-secondary: #2a2928;
+            --ui-card-color-bg: #f2f2f299;
+            --color-text-ok: #0a800a;
+            --color-bg-ok: #beffd099;
+            --color-text-error: #c82222;
+            --color-bg-error: #ff150028;
+            --color-text-warning: #de6f00;
+            --color-bg-warning: #ffefb999;
+            --icon-size: 96px;
             --light: #ff9ff4;
             --color-bg1: #ffe3e6;
             --color-bg2: #d1feff;
-            --color1: 205, 180, 219;
-            --color2: 255, 200, 221;
-            --color3: 255, 175, 204;
-            --color4: 189, 224, 254;
-            --color5: 162, 210, 255;
-            --color-interactive: 140, 100, 255;
+            --color1: #cdb4db;
+            --color2: #ffc8dd;
+            --color3: #ffafcc;
+            --color4: #bde0fe;
+            --color5: #a2d2ff;
+            --color-interactive: #8c64ff;
             --circle-size: 90%;
-            --blending: hard-light;
-
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media(prefers-color-scheme:dark) {
             :root {
-                --color-bg-primary: rgba(17, 17, 17, 0.6);
-                --color-text-primary: rgba(255, 255, 255, 0.86);
-                --color-text-secondary: rgba(255, 255, 255, 0.4);
-                --ui-card-color-bg: rgba(40, 40, 40, 0.6);
-                --color-bg-ok: rgba(7, 34, 15, 0.3);
-                --color-bg-error: rgba(39, 5, 1, 0.3);
-                --color-bg-warning: rgba(57, 38, 5, 0.3);
-                --light: #0fe;
+                background: linear-gradient(to bottom, #000000, #800000, #000000);
+                --color-bg-primary: #1111114d;
+                --color-text-primary: #ffffffe6;
+                --color-text-secondary: #ffffffb3;
+                --ui-card-color-bg: #28282899;
+                --color-text-ok: #42de42;
+                --color-bg-ok: #00ff4222;
+                --color-text-error: #de4242;
+                --color-bg-error: #ff000022;
+                --color-text-warning: #ff8c00;
+                --color-bg-warning: #ff800022;
+                --light: #00ffff99;
                 --color-bg1: #080a0f;
                 --color-bg2: #001120;
-                --color1: 18, 113, 255;
-                --color2: 107, 74, 255;
-                --color3: 100, 100, 255;
-                --color4: 50, 160, 220;
-                --color5: 80, 47, 122;
-                --color-interactive: 140, 100, 255;
+                --color1: #1271ff;
+                --color2: #6b4aff;
+                --color3: #6464ff;
+                --color4: #32a0dc;
+                --color5: #502f7a;
+                --color-interactive: #8c64ff;
                 --circle-size: 90%;
-                --blending: hard-light;
             }
         }
 
         @keyframes moveInCircle {
             0% {
-                transform: rotate(0deg);
+                transform: rotate(0)
             }
 
             50% {
-                transform: rotate(180deg);
+                transform: rotate(180deg)
             }
 
             100% {
-                transform: rotate(360deg);
+                transform: rotate(360deg)
             }
         }
 
         @keyframes moveVertical {
             0% {
-                transform: translateY(-80%);
+                transform: translateY(-80%)
             }
 
             50% {
-                transform: translateY(80%);
+                transform: translateY(80%)
             }
 
             100% {
-                transform: translateY(-80%);
+                transform: translateY(-80%)
             }
         }
 
         @keyframes moveHorizontal {
             0% {
-                transform: translateX(-80%) translateY(-20%);
+                transform: translateX(-80%)translateY(-20%)
             }
 
             50% {
-                transform: translateX(80%) translateY(20%);
+                transform: translateX(80%)translateY(20%)
             }
 
             100% {
-                transform: translateX(-80%) translateY(-20%);
+                transform: translateX(-80%)translateY(-20%)
             }
         }
 
@@ -626,221 +602,18 @@
             height: 100vh;
             position: fixed;
             overflow: hidden;
-            background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
             top: 0;
             left: 0;
             z-index: -1;
         }
 
-        .gradient-bg .svgBlur {
-            display: none;
-        }
-
-        .gradient-bg .noiseBg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            mix-blend-mode: soft-light;
-            opacity: 0.3;
-        }
-
-        .gradient-bg .gradients-container {
-            filter: blur(50px);
-            width: 100%;
-            height: 100%;
-        }
-
-        .gradient-bg .g1 {
-            position: absolute;
-            background: radial-gradient(circle at center,
-                    rgba(var(--color1), 0.8) 0,
-                    rgba(var(--color1), 0) 50%) no-repeat;
-            mix-blend-mode: var(--blending);
-            width: var(--circle-size);
-            height: var(--circle-size);
-            top: calc(50% - var(--circle-size) / 2);
-            left: calc(50% - var(--circle-size) / 2);
-            transform-origin: center center;
-            animation: moveVertical 20s ease infinite;
-            opacity: 1;
-        }
-
-        .gradient-bg .g2 {
-            position: absolute;
-            background: radial-gradient(circle at center,
-                    rgba(var(--color2), 0.8) 0,
-                    rgba(var(--color2), 0) 50%) no-repeat;
-            mix-blend-mode: var(--blending);
-            width: var(--circle-size);
-            height: var(--circle-size);
-            top: calc(50% - var(--circle-size) / 2);
-            left: calc(50% - var(--circle-size) / 2);
-            transform-origin: calc(50% - 400px);
-            animation: moveInCircle 10s reverse infinite;
-            opacity: 1;
-        }
-
-        .gradient-bg .g3 {
-            position: absolute;
-            background: radial-gradient(circle at center,
-                    rgba(var(--color3), 0.8) 0,
-                    rgba(var(--color3), 0) 50%) no-repeat;
-            mix-blend-mode: var(--blending);
-            width: var(--circle-size);
-            height: var(--circle-size);
-            top: calc(50% - var(--circle-size) / 2+200px);
-            left: calc(50% - var(--circle-size) / 2 - 500px);
-            transform-origin: calc(50%+400px);
-            animation: moveInCircle 30s linear infinite;
-            opacity: 1;
-        }
-
-        .gradient-bg .g4 {
-            position: absolute;
-            background: radial-gradient(circle at center,
-                    rgba(var(--color4), 0.8) 0,
-                    rgba(var(--color4), 0) 50%) no-repeat;
-            mix-blend-mode: var(--blending);
-            width: var(--circle-size);
-            height: var(--circle-size);
-            top: calc(50% - var(--circle-size) / 2);
-            left: calc(50% - var(--circle-size) / 2);
-            transform-origin: calc(50% - 200px);
-            animation: moveHorizontal 30s ease infinite;
-            opacity: 0.7;
-        }
-
-        .gradient-bg .g5 {
-            position: absolute;
-            background: radial-gradient(circle at center,
-                    rgba(var(--color5), 0.8) 0,
-                    rgba(var(--color5), 0) 50%) no-repeat;
-            mix-blend-mode: var(--blending);
-            width: calc(var(--circle-size) * 2);
-            height: calc(var(--circle-size) * 2);
-            top: calc(50% - var(--circle-size));
-            left: calc(50% - var(--circle-size));
-            transform-origin: calc(50% - 800px) calc(50%+200px);
-            animation: moveInCircle 10s ease infinite;
-            opacity: 1;
-        }
-
         .gradient-bg .interactive {
             position: absolute;
-            background: radial-gradient(circle at center,
-                    rgba(var(--color-interactive), 0.8) 0,
-                    rgba(var(--color-interactive), 0) 80%) no-repeat;
-            mix-blend-mode: var(--blending);
             width: 100%;
             height: 100%;
             top: -50%;
             left: -50%;
-            opacity: 0.7;
-            animation: color-i 20s infinite linear;
-            filter: blur(30px);
-        }
-
-        @keyframes color-i {
-            0% {
-                background: radial-gradient(circle at center,
-                        rgba(45, 0, 255, 0.8) 0,
-                        rgba(255, 0, 0, 0) 80%) no-repeat;
-                opacity: 0;
-            }
-
-            5% {
-                background: radial-gradient(circle at center,
-                        rgba(45, 0, 255, 0.8) 0,
-                        rgba(255, 0, 0, 0) 80%) no-repeat;
-                opacity: 0.7;
-            }
-
-            22.2% {
-                background: radial-gradient(circle at center,
-                        rgba(45, 0, 255, 0.8) 0,
-                        rgba(255, 0, 0, 0) 80%) no-repeat;
-                opacity: 0;
-            }
-
-            22.3% {
-                background: radial-gradient(circle at center,
-                        rgba(255, 45, 0, 0.8) 0,
-                        rgba(255, 0, 0, 0) 80%) no-repeat;
-                opacity: 0;
-            }
-
-            27.3% {
-                background: radial-gradient(circle at center,
-                        rgba(255, 45, 0, 0.8) 0,
-                        rgba(255, 0, 0, 0) 80%) no-repeat;
-                opacity: 0.7;
-            }
-
-            44.4% {
-                background: radial-gradient(circle at center,
-                        rgba(255, 45, 0, 0.8) 0,
-                        rgba(255, 0, 0, 0) 80%) no-repeat;
-                opacity: 0;
-            }
-
-            44.5% {
-                background: radial-gradient(circle at center,
-                        rgba(172, 0, 255, 0.8) 0,
-                        rgba(0, 255, 0, 0) 80%) no-repeat;
-                opacity: 0;
-            }
-
-            49.5% {
-                background: radial-gradient(circle at center,
-                        rgba(172, 0, 255, 0.8) 0,
-                        rgba(0, 255, 0, 0) 80%) no-repeat;
-                opacity: 0.7;
-            }
-
-            66.6% {
-                background: radial-gradient(circle at center,
-                        rgba(172, 0, 255, 0.8) 0,
-                        rgba(0, 255, 0, 0) 80%) no-repeat;
-                opacity: 0;
-            }
-
-            66.7% {
-                background: radial-gradient(circle at center,
-                        rgba(0, 210, 255, 0.8) 0,
-                        rgba(0, 0, 255, 0) 80%) no-repeat;
-                opacity: 0;
-            }
-
-            71.7% {
-                background: radial-gradient(circle at center,
-                        rgba(0, 210, 255, 0.8) 0,
-                        rgba(0, 0, 255, 0) 80%) no-repeat;
-                opacity: 0.7;
-            }
-
-            88.8% {
-                background: radial-gradient(circle at center,
-                        rgba(0, 210, 255, 0.8) 0,
-                        rgba(0, 0, 255, 0) 80%) no-repeat;
-                opacity: 0;
-            }
-
-            88.9% {
-                background: radial-gradient(circle at center,
-                        rgba(0, 0, 0, 0.8) 0,
-                        rgba(0, 0, 0, 0) 80%) no-repeat;
-                opacity: 0;
-            }
-
-            100% {
-                background: radial-gradient(circle at center,
-                        rgba(45, 0, 255, 0.8) 0,
-                        rgba(0, 0, 255, 0) 80%) no-repeat;
-                opacity: 0;
-            }
+            opacity: .7;
         }
 
         html,
@@ -851,15 +624,14 @@
             color: var(--color-text-primary);
             font-family: sans-serif;
             font-size: 18px;
-            word-break: keep-all;
+            word-break: break-all;
             display: flex;
             justify-content: center;
-            align-items: center;
-
+            align-items: center
         }
 
         body {
-            margin: 2em 2em;
+            margin: 2em
         }
 
         .container {
@@ -872,49 +644,47 @@
             border-radius: 20px;
             padding: 2em;
             background-color: var(--color-bg-primary);
-            transition: opacity 0.5s;
-
+            transition: opacity .5s
         }
 
         .atropos-inner {
             border-radius: 20px;
-
-            overflow: hidden;
+            overflow: hidden
         }
 
-        @supports ((-webkit-backdrop-filter: saturate() blur()) or (backdrop-filter: saturate() blur())) {
+        @supports((-webkit-backdrop-filter:saturate() blur()) or (backdrop-filter:saturate() blur())) {
             .container {
                 background-color: var(--color-bg-primary);
-                -webkit-backdrop-filter: saturate(150%) blur(10px) opacity(10%);
-                backdrop-filter: saturate(150%) blur(10px) opacity(10%);
+                -webkit-backdrop-filter: saturate(150%)blur(10px)opacity(10%);
+                backdrop-filter: saturate(150%)blur(10px)opacity(10%)
             }
 
             .card {
-                -webkit-backdrop-filter: saturate(150%) blur(10px) opacity(10%);
-                backdrop-filter: saturate(150%) blur(10px) opacity(10%);
+                -webkit-backdrop-filter: saturate(150%)blur(10px)opacity(10%);
+                backdrop-filter: saturate(150%)blur(10px)opacity(10%)
             }
         }
 
         header {
-            margin-left: 1em;
+            margin-left: 1em
         }
 
         header .error-code {
             font-size: 3.2em;
             font-family: monospace;
             font-weight: 400;
-            margin: 0 0 0 10px;
+            margin: 0 0 0 10px
         }
 
         header .error-description {
             font-family: sans-serif;
             font-size: 1.4em;
             color: var(--color-text-secondary);
-            margin: 0 0 0 10px;
+            margin: 0 0 0 10px
         }
 
         code {
-            font-family: monospace;
+            font-family: monospace
         }
 
         .status {
@@ -923,20 +693,19 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-
+            align-items: center
         }
 
         .status .card {
             z-index: 10;
-            background-color: color(var(--ui-card-color-bg) aplha(0.1));
+            background-color: color(var(--ui-card-color-bg) aplha(.1));
             padding: 2em;
-            margin: 1em 1em;
+            margin: 1em;
             min-height: 3em;
             border-radius: 20px;
             flex-grow: 1;
             position: relative;
-            overflow: hidden;
+            overflow: hidden
         }
 
         .card::before {
@@ -946,14 +715,11 @@
             left: var(--x);
             top: var(--y);
             transform: translate(-50%, -50%);
-
             width: 80vh;
             height: 80vh;
-            background: radial-gradient(circle at center,
-                    var(--light) 0,
-                    rgba(0, 0, 0, 0) 30%) no-repeat;
+            background: radial-gradient(circle at center, var(--light) 0, transparent 30%)no-repeat;
             opacity: 0;
-            transition: opacity 0.5s;
+            transition: opacity .5s
         }
 
         .card:hover::before,
@@ -962,7 +728,7 @@
         .card:focus::after,
         .card.active::before,
         .card.active::after {
-            opacity: 1;
+            opacity: 1
         }
 
         .card::after {
@@ -971,75 +737,74 @@
             position: absolute;
             inset: 2px;
             opacity: 0;
-            ;
             border-radius: 20px;
             background-color: var(--ui-card-color-bg);
-            transition: opacity 0.5s;
+            transition: opacity .5s
         }
 
         .arrows svg {
-            fill: var(--color-text-secondary);
+            fill: var(--color-text-secondary)
         }
 
         .icon svg {
             width: var(--icon-size);
             height: auto;
-            fill: var(--color-text-primary);
+            fill: var(--color-text-primary)
         }
 
         .card.ok {
-            background-color: var(--color-bg-ok);
+            background-color: var(--color-bg-ok)
         }
 
         .card.ok .status-text {
-            color: var(--color-text-ok);
+            color: var(--color-text-ok)
         }
 
         .card.ok svg {
-            fill: var(--color-text-ok);
+            fill: var(--color-text-ok)
         }
 
         .card.error {
-            background-color: var(--color-bg-error);
+            background-color: var(--color-bg-error)
         }
 
         .card.error .status-text {
-            color: var(--color-text-error);
+            color: var(--color-text-error)
         }
 
         .card.error svg {
-            fill: var(--color-text-error);
+            fill: var(--color-text-error)
         }
 
         .card.warning {
-            background-color: var(--color-bg-warning);
+            background-color: var(--color-bg-warning)
         }
 
         .card.warning .status-text {
-            color: var(--color-text-warning);
+            color: var(--color-text-warning)
         }
 
         .card.warning svg {
-            fill: var(--color-text-warning);
+            fill: var(--color-text-warning)
         }
 
         .card .caption {
-            font-size: 1.37em;
+            font-size: 1.37em
         }
 
         .card .status-text,
         .reason p {
             margin: 0;
-            font-family: sans-serif;
+            font-family: sans-serif
         }
 
         .reason p {
-            line-height: 125%;
+            line-height: 125%
         }
 
         a {
             text-decoration: none;
-            color: #1967d2;
+            color: #1967d2
         }
 
         .reason {
@@ -1047,20 +812,20 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: baseline
         }
 
         .reason>* {
             display: block;
             margin: 1em;
             flex-grow: 1;
-            max-width: 40%;
+            max-width: 40%
         }
 
         .reason h2 {
             font-size: 1.45em;
-            margin: 0 0 .6em 0;
-            font-weight: normal;
+            margin: 0 0 .6em;
+            font-weight: 400
         }
 
         footer {
@@ -1072,49 +837,48 @@
             unicode-bidi: normal;
             padding: 1em;
             color: var(--color-text-secondary);
-            align-content: flex-end;
+            align-content: flex-end
         }
 
         footer .details {
-            margin-top: 20px;
+            margin-top: 20px
         }
 
         footer .details ul {
             padding: 0;
-            font-size: 0.7em;
-            list-style: none;
+            font-size: .7em;
+            list-style: none
         }
 
         footer .details code {
-            padding-left: 0.3em;
-            opacity: 0.7;
+            padding-left: .3em;
+            opacity: .7
         }
 
-        @media screen and (max-width: 820px) {
+        @media screen and (max-width:820px) {
             .arrows {
-                display: none;
+                display: none
             }
         }
 
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width:480px) {
             .reason>* {
-                max-width: 100%;
+                max-width: 100%
             }
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width:768px) {
             body {
-                margin: 8% 10%;
+                margin: 8% 10%
             }
 
             .container {
-                width: 80vw;
-
+                width: 80vw
             }
 
             header>* {
                 display: inline-block;
-                margin-left: 1%;
+                margin-left: 1%
             }
         }
     </style>
@@ -1234,30 +998,7 @@
         </div>
     </div>
     <div class="gradient-bg">
-        <svg viewBox="0 0 100vw 100vw" xmlns='http://www.w3.org/2000/svg' class="noiseBg">
-            <filter id='noiseFilterBg'>
-                <feTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch' />
-            </filter>
-            <rect width='100%' height='100%' preserveAspectRatio="xMidYMid meet" filter='url(#noiseFilterBg)' />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
-            <defs>
-                <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
-                        result="goo" />
-                    <feBlend in="SourceGraphic" in2="goo" />
-                </filter>
-            </defs>
-        </svg>
-        <div class="gradients-container">
-            <div class="g1"></div>
-            <div class="g2"></div>
-            <div class="g3"></div>
-            <div class="g4"></div>
-            <div class="g5"></div>
-            <div class="interactive"></div>
-        </div>
+        <div class="interactive"></div>
     </div>
 
     <script>
