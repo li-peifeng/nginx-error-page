@@ -505,8 +505,8 @@
     </style>
     <style>
         :root {
-            background: linear-gradient(to bottom, #ffffff, #ff007377, #ffffff);
-            --color-bg-primary: #ffffffcc;
+            background: linear-gradient(#ffffff 10%, #00efff1f 33%, #fa00ff14 60%, #2eff0017 80%, #ffffff);
+            --color-bg-primary: #dedede66;
             --color-text-primary: #000;
             --color-text-secondary: #2a2928;
             --ui-card-color-bg: #f2f2f299;
@@ -531,8 +531,8 @@
 
         @media(prefers-color-scheme:dark) {
             :root {
-                background: linear-gradient(to bottom, #000000, #800000, #000000);
-                --color-bg-primary: #1111114d;
+                background: linear-gradient(#000000 10%, #800000 50%, #000000 90%);
+                --color-bg-primary: #16161633;
                 --color-text-primary: #ffffffe6;
                 --color-text-secondary: #ffffffb3;
                 --ui-card-color-bg: #28282899;
@@ -620,7 +620,7 @@
         body {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 98vh;
             color: var(--color-text-primary);
             font-family: sans-serif;
             font-size: 18px;
@@ -846,13 +846,14 @@
 
         footer .details ul {
             padding: 0;
-            font-size: .7em;
-            list-style: none
+            font-size: 1em;
+            list-style: none;
+            opacity: .9
         }
 
         footer .details code {
             padding-left: .3em;
-            opacity: .7
+            opacity: .9
         }
 
         @media screen and (max-width:820px) {
@@ -987,7 +988,7 @@
                                         <li><span>服务器</span>: <code>%server%</code></li>
                                     </ul>
                                 </div>
-                                <div class="details" style="text-align: center;" data-atropos-offset="6">PeiFeng.Li ©
+                                <div class="details" style="text-align: right" data-atropos-offset="6">PeiFeng.Li ©
                                     2024</div>
                             </footer>
                         </div>
@@ -997,10 +998,7 @@
             </div>
         </div>
     </div>
-    <div class="gradient-bg">
-        <div class="interactive"></div>
-    </div>
-
+    <div class="interactive"></div>
     <script>
         const errorCode = parseInt(`{{ code }}`, 10);
 
